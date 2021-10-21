@@ -69,14 +69,13 @@
         r += ' ';
       }
       return r;
-    }
+    } 
 
     function Uint8tohex(s)
     {
       let a = [];
       var skip = 0;
       var check;
-      const doc_value = document.getElementById('cmd').value;
       for (let i = 0; i < s.byteLength; i++) {
         check = s.getUint8(i);
         if((i == 0) && (check == 10))
@@ -87,25 +86,25 @@
         {
           if(skip == 1)
           {
-            if(doc_value == "GET ECHO1")
+            if(document.getElementById('cmd').value == "GET ECHO1")
               echo[i-1] = check*1000/255;
-            else if(doc_value == "GET ECHO2")
+            else if(document.getElementById('cmd').value == "GET ECHO2")
               echo[99 + (i-1)] = check*1000/255;
-            else if(doc_value == "GET DATEM1")
+            else if(document.getElementById('cmd').value == "GET DATEM1")
               datem[i-1] = check*1000/255;
-            else if(doc_value == "GET DATEM2")
+            else if(document.getElementById('cmd').value == "GET DATEM2")
               datem[99 + (i-1)] = check*1000/255;
             a.push(check);
           }
           else
           {
-            if(doc_value == "GET ECHO1")
+            if(document.getElementById('cmd').value == "GET ECHO1")
               echo[i] = check*1000/255;
-            else if(doc_value == "GET ECHO2")
+            else if(document.getElementById('cmd').value == "GET ECHO2")
               echo[99 + (i)] = check*1000/255;
-            else if(doc_value == "GET DATEM1")
+            else if(document.getElementById('cmd').value == "GET DATEM1")
               datem[i] = check*1000/255;
-            else if(doc_value == "GET DATEM2")
+            else if(document.getElementById('cmd').value == "GET DATEM2")
               datem[99 + (i)] = check*1000/255;
             a.push(check);
           }
@@ -116,8 +115,7 @@
       // console.log(a);
       // console.log(echo);
       // console.log(datem);
-      if((doc_value == "GET ECHO1") || (doc_value == "GET ECHO2") || (doc_value == "GET DATEM1") || (doc_value == "GET DATEM2"))
-        myChart.update();
+      myChart.update();
       return a;
     } 
 
@@ -402,7 +400,7 @@
 						</tr>
 						<tr>
 
-              <div class="chartBox" style="position: relative; margin: auto; height:300px; width:550px">
+              <div class="chartBox" style="position: relative; margin: auto; height:30vh; width:40vw">
                 <canvas id="myChart"></canvas>
               </div>   
 
