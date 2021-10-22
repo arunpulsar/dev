@@ -137,7 +137,9 @@
       let readInValue = await outboundChar.readValue();
       let decoder = new TextDecoder('utf-8');
       var checkBox = document.getElementById("myCheck");
-      if (checkBox.checked == true)
+      const doc_value = document.getElementById('cmd').value;
+      if((doc_value == "GET ECHO1") || (doc_value == "GET ECHO2") || (doc_value == "GET DATEM1") || (doc_value == "GET DATEM2") || (checkBox.checked == true))
+      // if (checkBox.checked == true)
       {
         var hex = Uint8tohex(readInValue);
         log(" <- " + hex);
